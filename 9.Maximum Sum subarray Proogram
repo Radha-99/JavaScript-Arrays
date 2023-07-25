@@ -1,0 +1,36 @@
+Given an array find the maximum sum subarray. Return the maximum sum of the subarray.
+
+Input:-
+
+[5,2,-4,-5, 3,-1,2,3,1]
+
+Output:-
+
+8
+
+Reason :- 3,-1,2,3,1 is the maximum subarray possible.
+
+function find_maximum_subarray(arr,length){
+    /*write the code to find the maximum subarray sum
+    only return the maximum sum of the subarray . 
+    Both array and size of array is given */
+
+    
+let maxSum = -Infinity;
+let currentSum = 0;
+
+for (let i = 0; i < arr.length; i++) {
+  currentSum += arr[i];
+  if (currentSum > maxSum) {
+    maxSum = currentSum;
+  }
+  if (currentSum < 0) {
+    currentSum = 0;
+  }
+}
+
+return maxSum;
+
+    
+    
+}
