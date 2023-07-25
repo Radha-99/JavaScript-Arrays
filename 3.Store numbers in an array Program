@@ -1,0 +1,18 @@
+Write a program to declare an array of size n and store the numbers 1,2,3,4 ...n in the array and return the array.
+
+function store_numbers(n){
+/*Function to store the number from 1 to n 
+Note - After storing return the array */
+
+    
+var numberArray = [];
+
+for (var i = 1; i <= n; i++) {
+  numberArray.push(i);
+}
+
+return numberArray ;
+
+    
+    
+}
