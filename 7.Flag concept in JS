@@ -1,0 +1,95 @@
+In JavaScript, the concept of "flags" is commonly associated with regular expressions (regex). Flags are optional parameters that you can add to a regular expression to modify its behavior when searching or matching patterns in strings. These flags are represented by single characters that follow the closing slash ("/") of a regular expression literal.
+
+Regular expression flags are used to control various aspects of pattern matching, such as case sensitivity, global matching, multiline matching, and more. Let's explore each flag in detail:
+
+1. `g` (global):
+   - This flag allows the regular expression to search for all occurrences of a pattern in a given string, rather than stopping after the first match.
+   - If you don't use the global flag, the regular expression will stop searching after finding the first match.
+
+Example:
+
+```javascript
+const str = "hello hello world";
+const regex = /hello/g;
+
+console.log(str.match(regex)); // Output: ["hello", "hello"]
+```
+
+2. `i` (case-insensitive):
+   - This flag makes the regular expression case-insensitive, meaning it will match patterns regardless of the case (uppercase or lowercase).
+   - Without the `i` flag, the regular expression will be case-sensitive.
+
+Example:
+
+```javascript
+const str = "Hello World";
+const regex = /hello/i;
+
+console.log(str.match(regex)); // Output: ["Hello"]
+```
+
+3. `m` (multiline):
+   - The multiline flag allows the regular expression to match patterns across multiple lines in a multiline string.
+   - By default, the regular expression treats the input string as a single line.
+
+Example:
+
+```javascript
+const str = "Line 1\nLine 2";
+const regex = /^Line/m;
+
+console.log(str.match(regex)); // Output: ["Line"] (matches at the start of the string and after each newline)
+```
+
+4. `s` (dotAll):
+   - The dotAll flag makes the dot (`.`) in a regular expression match any character, including line terminators like newline (`\n`).
+   - Without the `s` flag, the dot matches any character except for line terminators.
+
+Example:
+
+```javascript
+const str = "Line 1\nLine 2";
+const regex = /Line.2/s;
+
+console.log(str.match(regex)); // Output: ["Line 2"]
+```
+
+5. `u` (unicode):
+   - The unicode flag enables full Unicode support for the regular expression.
+   - It allows the regex to work with Unicode characters outside the Basic Multilingual Plane (BMP).
+
+Example:
+
+```javascript
+const str = "😀🌍";
+const regex = /\u{1F600}/u;
+
+console.log(str.match(regex)); // Output: ["😀"]
+```
+
+6. `y` (sticky):
+   - The sticky flag enforces the regular expression to perform a "sticky" search starting from the lastIndex property of the regex.
+   - The sticky flag is useful for searching in a string that has multiple parts, and you want to continue matching from the last index.
+
+Example:
+
+```javascript
+const str = "abcabc";
+const regex = /abc/y;
+
+console.log(regex.exec(str)); // Output: ["abc"]
+console.log(regex.exec(str)); // Output: ["abc"]
+```
+
+These flags can be used individually or combined to modify the behavior of a regular expression as needed. When using multiple flags, simply list them next to each other after the closing slash of the regex literal.
+
+Example:
+
+```javascript
+const str = "Hello World";
+const regex = /hello/gi; // g - global, i - case-insensitive
+
+console.log(str.match(regex)); // Output: ["Hello"]
+```
+
+Understanding and utilizing regular expression flags can greatly enhance your ability to work with textual patterns in JavaScript. It's essential to be mindful of which flags to use based on your specific use case to achieve the desired matching behavior.
