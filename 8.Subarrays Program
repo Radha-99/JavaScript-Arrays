@@ -1,0 +1,114 @@
+After watching the video write the code to print all the subarrays possible. Note - print in the similar way as given here.
+
+Input:-
+
+[1,2,3,4,5]
+
+Output:-
+
+1
+
+12
+
+123
+
+1234
+
+12345
+
+2
+
+23
+
+234
+
+2345
+
+3
+
+34
+
+345
+
+4
+
+45
+
+5
+
+
+
+function print_subarray(arr,length){
+    /*Function to print all the subarrays given in an array
+    Input arr--> array, length -->length of an array */
+    
+    for(let i = 0;i<length; i++){ let str; str=""; for(let j = i; j<length; j++){ str = str + arr[j]; console.log(str); } }
+
+
+    
+    
+    
+}
+
+
+
+In JavaScript, a subarray is a contiguous segment of elements within an array. It represents a portion of the original array, and it preserves the order of elements. Subarrays are often used to extract specific parts of an array or perform operations on a subset of elements.
+
+To create a subarray in JavaScript, you can use the `slice()` method of the array object. The `slice()` method returns a new array containing the elements from the original array based on the specified start and end indices. The start index is inclusive, and the end index is exclusive, meaning the element at the end index is not included in the subarray.
+
+The syntax of the `slice()` method is as follows:
+
+```javascript
+array.slice(startIndex, endIndex);
+```
+
+Let's explore some examples to understand how subarrays work:
+
+Example 1: Creating a subarray with `slice()`
+
+```javascript
+const originalArray = [1, 2, 3, 4, 5];
+const subArray = originalArray.slice(1, 4);
+
+console.log(subArray); // Output: [2, 3, 4]
+```
+
+In this example, we created a subarray from `originalArray` starting at index 1 (inclusive) and ending at index 4 (exclusive). Therefore, the subarray includes elements at indices 1, 2, and 3 from the original array.
+
+Example 2: Extracting elements from the end of the array
+
+```javascript
+const originalArray = [10, 20, 30, 40, 50];
+const subArray = originalArray.slice(-3);
+
+console.log(subArray); // Output: [30, 40, 50]
+```
+
+Using a negative value for the start index in the `slice()` method allows you to extract elements from the end of the array. In this example, we extracted the last three elements from the `originalArray`.
+
+Example 3: Copying an entire array using `slice()`
+
+```javascript
+const originalArray = [100, 200, 300];
+const copiedArray = originalArray.slice();
+
+console.log(copiedArray); // Output: [100, 200, 300]
+```
+
+If you call `slice()` without any arguments, it creates a shallow copy of the entire original array, effectively duplicating it.
+
+It's important to note that the `slice()` method does not modify the original array; it returns a new array with the extracted elements. If you want to modify the original array in place, you would use other array methods like `splice()`.
+
+Example 4: Modifying the original array using `splice()`
+
+```javascript
+const originalArray = [10, 20, 30, 40, 50];
+const removedElements = originalArray.splice(1, 3, 99, 88, 77);
+
+console.log(originalArray);     // Output: [10, 99, 88, 77, 50]
+console.log(removedElements);   // Output: [20, 30, 40]
+```
+
+In this example, we used the `splice()` method to remove three elements starting at index 1 and replace them with three new elements (99, 88, and 77).
+
+Using subarrays is a powerful technique when working with arrays in JavaScript, as it allows you to extract specific portions of an array without modifying the original data. This can be useful for various array operations and data manipulations.
