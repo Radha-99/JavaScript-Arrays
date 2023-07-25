@@ -1,0 +1,52 @@
+Write a program to store first n prime numbers in an array . After storing return the array.﻿
+
+
+
+Input:-
+
+n=5
+
+Output:- Return the output in the form of an array.
+
+2
+
+3
+
+5
+
+7
+
+11
+
+function prime_numbers(n){
+/* Function to store first n prime_numbers in an array
+Return the array containing the prime numbers */
+
+ 
+ 
+var primes = []; // Array to store prime numbers
+var number = 2; // Start checking from 2
+
+while (primes.length < n) {
+  var isPrime = true;
+
+  for (var divisor = 2; divisor < number; divisor++) {
+    if (number % divisor === 0) {
+      isPrime = false;
+      break;
+    }
+  }
+
+  if (isPrime) {
+    primes.push(number);
+  }
+
+  number++;
+}
+
+return primes;
+
+    
+    
+    
+}
